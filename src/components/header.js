@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { BrowserRouter,Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import Modal from 'react-modal';
+import { Link } from 'react-router-dom';
 
 
 const Container = styled.div`
@@ -88,12 +90,15 @@ const Header = () => {
                 <Nav>
                     <List>  ⃝ ⃝ ⃝님, 안녕하세요! </List>
                     <List>
-                        <img src='icon/itemlist.png' alt='itemIcon'></img>
-                        상품리스트 페이지
+                        <Link to='/itemList'>
+                        <img src='icon/itemlist.png' alt='itemIcon' />상품리스트 페이지
+                        </Link>
                     </List>
                     <List>
+                        <Link to='/bookmark'>
                         <img src='icon/bookmark.png' alt='bookmarkIcon'></img>
                         북마크 페이지
+                        </Link>
                     </List>
                 </Nav>
         </Modal>
