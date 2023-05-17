@@ -5,11 +5,11 @@ import Main from './page/main';
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
       <Main />
       <Footer />
-    </div>
+    </>
   );
 }
 
