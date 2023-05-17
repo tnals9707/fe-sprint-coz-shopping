@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 const HeaderSection = styled.div`
     width: 100%;
     height: 80px;
-    border: solid 1px green;
     padding: 0 76px 0 76px;
     box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -17,17 +16,20 @@ const HeaderSection = styled.div`
 `;
 
 const Logo = styled.div`
-    display: flex;
-    align-items: center; 
+`;
 
-    > img {
-        margin-right: 12px;
-    }
-    > h1 {
-        font-size: 32px;
-        height: 700;
-    }
-    > h1:hover {
+const ImgLogo = styled.img `
+    height: 30px;
+    width: 55px;
+    margin-right: 12px;
+    margin-top: 25px;
+`;
+
+const Title = styled.h1 `
+    font-size: 32px;
+    height: 700;
+
+    > Title : hover{
         cursor: pointer;
     }
 `;
@@ -50,7 +52,7 @@ const modalStyle = {
       }
 };
 
-const Nav = styled.ul`
+const ModalInner = styled.ul`
     display: flex;
     flex-direction: column;
 `;
@@ -59,13 +61,19 @@ const List = styled.li`
     height: 50px;
     size: 16px;
     display: flex;
-    flex-direction: row;
     align-items: center;
 `
 
-const Img = styled.img `
+const ImgPng = styled.img `
         margin-right: 8px;
 `;
+
+const LinkStyle = {
+    textDecoration: "none",
+    color: 'black',
+    display: 'flex',
+    flexDirection: 'row',
+}
 
 const Header = () => {
     const [modalOpen, setModalOpen] = useState(false);
@@ -77,8 +85,10 @@ const Header = () => {
     return (
     <HeaderSection>
         <Logo>
-            <img src='icon/logo.png' alt='logoIcon'></img>
-            <h1> COZ Shopping</h1>
+            <Link to='/' style={LinkStyle}>
+            <ImgLogo src='icon/logo.png' alt='logoIcon' />
+            <Title>COZ Shopping</Title>
+            </ Link>
         </Logo>
         <Hamburger 
             src='icon/hamburger.png'
@@ -88,20 +98,20 @@ const Header = () => {
             isOpen = {modalOpen}
             onRequestClose={modalHandler}
             style={modalStyle}>
-                <Nav>
+                <ModalInner>
                     <List>  ⃝ ⃝ ⃝님, 안녕하세요! </List>
                     <List>
-                        <Link to='/itemList' style={{textDecoration: "none", color: 'black'}}>
-                        <Img src='icon/itemlist.png' alt='itemIcon' />상품리스트 페이지
+                        <Link to='/itemList' style={LinkStyle}>
+                        <ImgPng src='icon/itemlist.png' alt='itemIcon' />상품리스트 페이지
                         </Link>
                     </List>
                     <List>
-                        <Link to='/bookmark' style={{textDecoration: "none", color: 'black'}}>
-                        <Img src='icon/bookmark.png' alt='bookmarkIcon'></Img>
+                        <Link to='/bookmark' style={LinkStyle}>
+                        <ImgPng src='icon/bookmark.png' alt='bookmarkIcon' />
                         북마크 페이지
                         </Link>
                     </List>
-                </Nav>
+                </ModalInner>
         </Modal>
     </HeaderSection>
     );
