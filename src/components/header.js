@@ -50,18 +50,19 @@ const modalStyle = {
 const Nav = styled.ul`
     display: flex;
     flex-direction: column;
-    > li {
-        height: 50px;
-        size: 16px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+`;
 
-        > img {
-            margin-right: 8px;
-        }
+const List = styled.li`
+    height: 50px;
+    size: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    > img {
+        margin-right: 8px;
     }
-`
+`;
 
 const Header = () => {
     const [modalOpen, setModalOpen] = useState(false);
@@ -85,15 +86,15 @@ const Header = () => {
             onRequestClose={modalHandler}
             style={modalStyle}>
                 <Nav>
-                    <li>  ⃝ ⃝ ⃝님, 안녕하세요! </li>
-                    <li>
+                    <List>  ⃝ ⃝ ⃝님, 안녕하세요! </List>
+                    <List>
                         <img src='icon/itemlist.png' alt='itemIcon'></img>
                         상품리스트 페이지
-                    </li>
-                    <li>
+                    </List>
+                    <List>
                         <img src='icon/bookmark.png' alt='bookmarkIcon'></img>
                         북마크 페이지
-                    </li>
+                    </List>
                 </Nav>
         </Modal>
     </Container>
