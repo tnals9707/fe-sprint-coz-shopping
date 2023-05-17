@@ -5,10 +5,10 @@ import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
 
 
-const Container = styled.div`
-    position: relative;
+const HeaderSection = styled.div`
     width: 100%;
     height: 80px;
+    border: solid 1px green;
     padding: 0 76px 0 76px;
     box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -33,6 +33,7 @@ const Logo = styled.div`
 `;
 
 const Hamburger = styled.img`
+display: flex;
     cursor: pointer;
 `;
 
@@ -60,10 +61,10 @@ const List = styled.li`
     display: flex;
     flex-direction: row;
     align-items: center;
+`
 
-    > img {
+const Img = styled.img `
         margin-right: 8px;
-    }
 `;
 
 const Header = () => {
@@ -74,7 +75,7 @@ const Header = () => {
     };
 
     return (
-    <Container>
+    <HeaderSection>
         <Logo>
             <img src='icon/logo.png' alt='logoIcon'></img>
             <h1> COZ Shopping</h1>
@@ -90,19 +91,19 @@ const Header = () => {
                 <Nav>
                     <List>  ⃝ ⃝ ⃝님, 안녕하세요! </List>
                     <List>
-                        <Link to='/itemList'>
-                        <img src='icon/itemlist.png' alt='itemIcon' />상품리스트 페이지
+                        <Link to='/itemList' style={{textDecoration: "none", color: 'black'}}>
+                        <Img src='icon/itemlist.png' alt='itemIcon' />상품리스트 페이지
                         </Link>
                     </List>
                     <List>
-                        <Link to='/bookmark'>
-                        <img src='icon/bookmark.png' alt='bookmarkIcon'></img>
+                        <Link to='/bookmark' style={{textDecoration: "none", color: 'black'}}>
+                        <Img src='icon/bookmark.png' alt='bookmarkIcon'></Img>
                         북마크 페이지
                         </Link>
                     </List>
                 </Nav>
         </Modal>
-    </Container>
+    </HeaderSection>
     );
 };
 
